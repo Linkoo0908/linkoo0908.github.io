@@ -71,6 +71,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    min-height: 70px;
 }
 
 .nav-logo {
@@ -96,8 +97,19 @@ body {
 
 .nav-menu {
     display: flex;
-    list-style: none;
+    align-items: center;
+    justify-content: center;
     gap: 30px;
+    height: 70px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-menu a {
@@ -106,6 +118,10 @@ body {
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
+    padding: 10px 0;
+    display: block;
+    height: 44px;
+    box-sizing: border-box;
 }
 
 .nav-menu a:hover {
@@ -116,7 +132,7 @@ body {
 .nav-menu a::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 5px;
     left: 0;
     width: 0;
     height: 2px;
@@ -126,6 +142,10 @@ body {
 
 .nav-menu a:hover::after {
     width: 100%;
+}
+
+.mobile-menu-toggle {
+    display: none;
 }
 
 /* Hero Section */
@@ -553,6 +573,67 @@ body {
     color: rgba(255, 255, 255, 0.6);
 }
 
+/* 언어 전환 버튼 스타일 */
+.language-switcher {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--star-white);
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: var(--font-kr);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px; /* 네비게이션 링크와 동일한 높이 */
+}
+
+.lang-btn:hover {
+    background: var(--primary-blue);
+    color: var(--space-black);
+    transform: scale(1.05);
+}
+
+.lang-toggle {
+    font-size: 1.1rem;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 언어별 폰트 스타일 */
+[data-lang="en"] {
+    font-family: var(--font-en);
+    letter-spacing: 1px;
+}
+
+[data-lang="ko"] {
+    font-family: var(--font-kr);
+}
+
+/* 언어 전환 애니메이션 */
+.lang-transition {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.lang-transition.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Footer */
 .footer {
     background: var(--space-black);
@@ -599,7 +680,107 @@ body {
         align-items: center;
     }
     
+    /* 모바일에서 네비게이션 메뉴 조정 */
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
     .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--space-black);
+        padding: 20px;
+        border-top: 2px solid var(--primary-blue);
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        z-index: 1000;
+    }
+    
+    .nav-menu.mobile-active {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: 15px 0;
+        font-size: 1.1rem;
+    }
+    
+    .language-switcher {
+        margin-left: 0;
+        margin-top: 10px;
+        width: auto;
+    }
+    
+    .lang-btn {
+        width: auto;
+        justify-content: center;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--star-white);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 10px;
+        border: 2px solid var(--primary-blue);
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-toggle:hover {
+        background: var(--primary-blue);
+        color: var(--space-black);
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        min-height: 70px;
+    }
+    
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        height: 70px;
+    }
+    
+    .nav-menu li {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+    
+    .nav-menu a,
+    .lang-btn {
+        display: flex;
+        align-items: center;
+        height: 44px;
+        box-sizing: border-box;
+    }
+    
+    .mobile-menu-toggle {
         display: none;
     }
 }

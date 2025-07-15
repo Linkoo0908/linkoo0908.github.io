@@ -17,11 +17,18 @@
                 <img src="bleorgames_logo.png" alt="BLEOR GAMES" class="logo-image">
                 <span class="logo-text">BLEOR GAMES</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#games">Games</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" style="display: none;">☰</button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" data-ko="홈" data-en="Home">홈</a></li>
+                <li><a href="#about" data-ko="소개" data-en="About">소개</a></li>
+                <li><a href="#games" data-ko="게임" data-en="Games">게임</a></li>
+                <li><a href="#contact" data-ko="연락처" data-en="Contact">연락처</a></li>
+                <li class="language-switcher">
+                    <button id="lang-btn" class="lang-btn">
+                        <span class="lang-current">한국어</span>
+                        <span class="lang-toggle">🌐</span>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -36,14 +43,16 @@
             <h1 class="hero-title">
                 <span class="gradient-text">BLEOR GAMES</span>
             </h1>
-            <h2 class="hero-subtitle">블레어게임즈</h2>
-            <p class="hero-description">
+            <h2 class="hero-subtitle" data-ko="블레어게임즈" data-en="BLEOR GAMES">블레어게임즈</h2>
+            <p class="hero-description" 
+               data-ko="파란 운석처럼 신선한 충격을 선사하는<br>픽셀아트 그래픽의 독창적인 게임을 만듭니다" 
+               data-en="Creating unique games with pixel art graphics<br>that deliver fresh impact like a blue meteor">
                 파란 운석처럼 신선한 충격을 선사하는<br>
                 픽셀아트 그래픽의 독창적인 게임을 만듭니다
             </p>
             <div class="hero-buttons">
-                <a href="#games" class="btn btn-primary">게임 보기</a>
-                <a href="#about" class="btn btn-secondary">회사 소개</a>
+                <a href="#games" class="btn btn-primary" data-ko="게임 보기" data-en="View Games">게임 보기</a>
+                <a href="#about" class="btn btn-secondary" data-ko="회사 소개" data-en="About Us">회사 소개</a>
             </div>
         </div>
     </section>
@@ -51,25 +60,34 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About BLEOR GAMES</h2>
+            <h2 class="section-title" data-ko="About BLEOR GAMES" data-en="About BLEOR GAMES">About BLEOR GAMES</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>파란 운석의 의미</h3>
-                    <p>BLEOR는 파란(Blue)과 운석(Meteor)의 합성어로, 신선한 충격을 선사하고자 하는 뜻을 지니고 있습니다.</p>
+                    <h3 data-ko="파란 운석의 의미" data-en="Meaning of Blue Meteor">파란 운석의 의미</h3>
+                    <p data-ko="BLEOR는 파란(Blue)과 운석(Meteor)의 합성어로, 신선한 충격을 선사하고자 하는 뜻을 지니고 있습니다." 
+                       data-en="BLEOR is a combination of Blue and Meteor, meaning to deliver fresh impact and innovation.">
+                        BLEOR는 파란(Blue)과 운석(Meteor)의 합성어로, 신선한 충격을 선사하고자 하는 뜻을 지니고 있습니다.
+                    </p>
                     
-                    <h3>우리의 철학</h3>
-                    <p>픽셀아트 그래픽의 독창적인 게임을 만드는 1인 개발사입니다. 퍼즐과 RPG, 슈팅 등 다양한 복합 장르의 미드코어 게임을 통해 깊은 생각을 하게 만드는 게임을 지향합니다.</p>
+                    <h3 data-ko="우리의 철학" data-en="Our Philosophy">우리의 철학</h3>
+                    <p data-ko="픽셀아트 그래픽의 독창적인 게임을 만드는 1인 개발사입니다. 퍼즐과 RPG, 슈팅 등 다양한 복합 장르의 미드코어 게임을 통해 깊은 생각을 하게 만드는 게임을 지향합니다." 
+                       data-en="We are an indie developer creating unique games with pixel art graphics. We aim to create mid-core games that combine puzzle, RPG, and shooting elements to provoke deep thinking.">
+                        픽셀아트 그래픽의 독창적인 게임을 만드는 1인 개발사입니다. 퍼즐과 RPG, 슈팅 등 다양한 복합 장르의 미드코어 게임을 통해 깊은 생각을 하게 만드는 게임을 지향합니다.
+                    </p>
                     
-                    <h3>기술 스택</h3>
-                    <p>Unity를 통해 2D 게임을 주로 제작하며, 레트로풍 그래픽으로 계속해서 판타지 세계로 플레이어들을 안내하고 즐거운 경험을 드리기 위해 노력하고 있습니다.</p>
+                    <h3 data-ko="기술 스택" data-en="Tech Stack">기술 스택</h3>
+                    <p data-ko="Unity를 통해 2D 게임을 주로 제작하며, 레트로풍 그래픽으로 계속해서 판타지 세계로 플레이어들을 안내하고 즐거운 경험을 드리기 위해 노력하고 있습니다." 
+                       data-en="We primarily develop 2D games using Unity, and strive to guide players into fantasy worlds through retro-style graphics and provide enjoyable experiences.">
+                        Unity를 통해 2D 게임을 주로 제작하며, 레트로풍 그래픽으로 계속해서 판타지 세계로 플레이어들을 안내하고 즐거운 경험을 드리기 위해 노력하고 있습니다.
+                    </p>
                 </div>
                 <div class="about-achievements">
-                    <h3>주요 경력</h3>
+                    <h3 data-ko="주요 경력" data-en="Major Achievements">주요 경력</h3>
                     <ul class="achievements-list">
-                        <li>🏆 2018 성남인디게임 페스티벌 우수작 수상</li>
-                        <li>🎮 2018 BIC 출품 선정</li>
-                        <li>🌟 2017 부산인디커넥트 참가</li>
-                        <li>🌟 2018 부산인디커넥트 참가</li>
+                        <li data-ko="🏆 2019 구글 인디게임 페스티벌 TOP 10 선정" data-en="🏆 2019 Google Indie Game Festival TOP 10 Selection">🏆 2019 구글 인디게임 페스티벌 TOP 10 선정</li>
+                        <li data-ko="🏆 2018 성남인디게임 페스티벌 우수작 수상" data-en="🏆 2018 Seongnam Indie Game Festival Excellence Award">🏆 2018 성남인디게임 페스티벌 우수작 수상</li>                        
+                        <li data-ko="🌟 2018 부산인디커넥트 참가" data-en="🌟 2018 Busan Indie Connect Participation">🌟 2018 부산인디커넥트 참가</li>
+                        <li data-ko="🌟 2017 부산인디커넥트 참가" data-en="🌟 2017 Busan Indie Connect Participation">🌟 2017 부산인디커넥트 참가</li>
                     </ul>
                 </div>
             </div>
@@ -79,24 +97,26 @@
     <!-- Games Section -->
     <section id="games" class="games">
         <div class="container">
-            <h2 class="section-title">Our Games</h2>
+            <h2 class="section-title" data-ko="Our Games" data-en="Our Games">Our Games</h2>
             <div class="games-grid">
                 <div class="game-card">
                     <div class="game-image">
                         <div class="game-placeholder">🏰</div>
                     </div>
                     <div class="game-info">
-                        <h3>헥사곤 던전</h3>
+                        <h3 data-ko="헥사곤 던전" data-en="Hexagon Dungeon">헥사곤 던전</h3>
                         <p class="game-subtitle">HEXAGON DUNGEON</p>
-                        <p class="game-description">
+                        <p class="game-description" 
+                           data-ko="레트로 그래픽의 퍼즐 게임입니다. 마왕의 딸인 에리스와 그녀를 돕는 악마 자드가 던전을 부활시키는 이야기를 담고 있습니다." 
+                           data-en="A retro-styled puzzle game featuring Eris, the daughter of the Demon King, and her demon companion Zad as they revive dungeons.">
                             레트로 그래픽의 퍼즐 게임입니다. 마왕의 딸인 에리스와 그녀를 돕는 악마 자드가 던전을 부활시키는 이야기를 담고 있습니다.
                         </p>
                         <div class="game-tags">
-                            <span class="tag">퍼즐</span>
-                            <span class="tag">RPG</span>
-                            <span class="tag">픽셀아트</span>
+                            <span class="tag" data-ko="퍼즐" data-en="Puzzle">퍼즐</span>
+                            <span class="tag" data-ko="RPG" data-en="RPG">RPG</span>
+                            <span class="tag" data-ko="픽셀아트" data-en="Pixel Art">픽셀아트</span>
                         </div>
-                        <a href="https://bleorgame.wixsite.com/hexagondungeon" class="btn btn-game" target="_blank">게임 사이트</a>
+                        <a href="https://bleorgame.wixsite.com/hexagondungeon" class="btn btn-game" target="_blank" data-ko="게임 사이트" data-en="Game Site">게임 사이트</a>
                     </div>
                 </div>
 
@@ -105,18 +125,20 @@
                         <div class="game-placeholder">💎</div>
                     </div>
                     <div class="game-info">
-                        <h3>헥사곤 던전: 아르카나의 돌</h3>
+                        <h3 data-ko="헥사곤 던전: 아르카나의 돌" data-en="Hexagon Dungeon: The Arcana's Stone">헥사곤 던전: 아르카나의 돌</h3>
                         <p class="game-subtitle">HEXAGON DUNGEON: THE ARCANA'S STONE</p>
-                        <p class="game-description">
+                        <p class="game-description" 
+                           data-ko="헥사곤 던전의 후속작입니다. 마왕의 둘째 딸인 베르제벨라와 그녀를 돕는 임프 가프와 함께 신비로운 던전의 비밀을 밝혀가는 여정을 그립니다." 
+                           data-en="The sequel to Hexagon Dungeon. Follow Beelzebub's second daughter Berzebeela and her imp companion Gaff as they uncover the secrets of mysterious dungeons.">
                             헥사곤 던전의 후속작입니다. 마왕의 둘째 딸인 베르제벨라와 그녀를 돕는 임프 가프와 함께 신비로운 던전의 비밀을 밝혀가는 여정을 그립니다.
                         </p>
                         <div class="game-tags">
-                            <span class="tag">퍼즐</span>
-                            <span class="tag">RPG</span>
-                            <span class="tag">전략</span>
-                            <span class="tag">수집</span>
+                            <span class="tag" data-ko="퍼즐" data-en="Puzzle">퍼즐</span>
+                            <span class="tag" data-ko="RPG" data-en="RPG">RPG</span>
+                            <span class="tag" data-ko="전략" data-en="Strategy">전략</span>
+                            <span class="tag" data-ko="수집" data-en="Collection">수집</span>
                         </div>
-                        <div class="development-status">개발 중</div>
+                        <div class="development-status" data-ko="개발 중" data-en="In Development">개발 중</div>
                     </div>
                 </div>
             </div>
@@ -126,29 +148,32 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title" data-ko="Contact Us" data-en="Contact Us">Contact Us</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <h3>📧 이메일</h3>
+                        <h3 data-ko="📧 이메일" data-en="📧 Email">📧 이메일</h3>
                         <a href="mailto:bleorgame@gmail.com">bleorgame@gmail.com</a>
                     </div>
                     <div class="contact-item">
-                        <h3>📍 주소</h3>
-                        <p>대한민국 경기도 성남시 분당구 삼평동<br>대왕판교로645번길</p>
+                        <h3 data-ko="📍 주소" data-en="📍 Address">📍 주소</h3>
+                        <p data-ko="대한민국 경기도 성남시 분당구 삼평동<br>대왕판교로645번길" 
+                           data-en="Daewangpangyo-ro 645beon-gil,<br>Sampyeong-dong, Bundang-gu, Seongnam-si, South Korea">
+                            대한민국 경기도 성남시 분당구 삼평동<br>대왕판교로645번길
+                        </p>
                     </div>
                     <div class="contact-item">
-                        <h3>🌐 소셜 미디어</h3>
+                        <h3 data-ko="🌐 소셜 미디어" data-en="🌐 Social Media">🌐 소셜 미디어</h3>
                         <a href="https://www.facebook.com/bleorgame" target="_blank" class="social-link">Facebook</a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>메시지 보내기</h3>
+                    <h3 data-ko="메시지 보내기" data-en="Send Message">메시지 보내기</h3>
                     <form>
-                        <input type="text" placeholder="이름" required>
-                        <input type="email" placeholder="이메일" required>
-                        <textarea placeholder="메시지" rows="5" required></textarea>
-                        <button type="submit" class="btn btn-primary">보내기</button>
+                        <input type="text" placeholder="이름" data-placeholder-ko="이름" data-placeholder-en="Name" required>
+                        <input type="email" placeholder="이메일" data-placeholder-ko="이메일" data-placeholder-en="Email" required>
+                        <textarea placeholder="메시지" data-placeholder-ko="메시지" data-placeholder-en="Message" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary" data-ko="보내기" data-en="Send">보내기</button>
                     </form>
                 </div>
             </div>
@@ -158,8 +183,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 BLEOR GAMES. All rights reserved.</p>
-            <p>파란 운석처럼 신선한 충격을 선사하는 게임을 만듭니다.</p>
+            <p data-ko="&copy; 2025 BLEOR GAMES. All rights reserved." data-en="&copy; 2025 BLEOR GAMES. All rights reserved.">&copy; 2025 BLEOR GAMES. All rights reserved.</p>
+            <p data-ko="파란 운석처럼 신선한 충격을 선사하는 게임을 만듭니다." data-en="Creating games that deliver fresh impact like a blue meteor.">파란 운석처럼 신선한 충격을 선사하는 게임을 만듭니다.</p>
         </div>
     </footer>
 

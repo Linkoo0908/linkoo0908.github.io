@@ -1,5 +1,81 @@
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
+    // 언어 전환 기능
+    let currentLang = 'ko'; // 기본 언어는 한국어
+    const langBtn = document.getElementById('lang-btn');
+    const langCurrent = document.querySelector('.lang-current');
+    
+    // 언어 전환 함수
+    function switchLanguage() {
+        currentLang = currentLang === 'ko' ? 'en' : 'ko';
+        updateTexts();
+        updateLangButton();
+        localStorage.setItem('language', currentLang);
+    }
+    
+    // 텍스트 업데이트 함수
+    function updateTexts() {
+        const elements = document.querySelectorAll('[data-ko][data-en]');
+        
+        elements.forEach(element => {
+            // 애니메이션 효과
+            element.classList.add('lang-transition');
+            
+            setTimeout(() => {
+                if (currentLang === 'ko') {
+                    element.innerHTML = element.getAttribute('data-ko');
+                } else {
+                    element.innerHTML = element.getAttribute('data-en');
+                }
+                
+                element.classList.remove('lang-transition');
+                element.classList.add('active');
+                
+                setTimeout(() => {
+                    element.classList.remove('active');
+                }, 300);
+            }, 150);
+        });
+        
+        // placeholder 업데이트 (별도로 처리)
+        const formElements = document.querySelectorAll('input[data-placeholder-ko][data-placeholder-en], textarea[data-placeholder-ko][data-placeholder-en]');
+        formElements.forEach(element => {
+            const placeholderAttr = currentLang === 'ko' ? 'data-placeholder-ko' : 'data-placeholder-en';
+            element.placeholder = element.getAttribute(placeholderAttr);
+        });
+        
+        // document 언어 속성 업데이트
+        document.documentElement.lang = currentLang;
+        document.body.setAttribute('data-lang', currentLang);
+    }
+    
+    // 언어 버튼 업데이트
+    function updateLangButton() {
+        if (currentLang === 'ko') {
+            langCurrent.textContent = '한국어';
+        } else {
+            langCurrent.textContent = 'English';
+        }
+    }
+    
+    // 저장된 언어 설정 로드
+    function loadLanguage() {
+        const savedLang = localStorage.getItem('language');
+        if (savedLang && savedLang !== currentLang) {
+            currentLang = savedLang;
+            updateTexts();
+            updateLangButton();
+        }
+    }
+    
+    // 이벤트 리스너
+    if (langBtn) {
+        langBtn.addEventListener('click', switchLanguage);
+    }
+    
+    // 초기 언어 설정 로드
+    loadLanguage();
+
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     
@@ -107,12 +183,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Simple validation
             if (!name || !email || !message) {
-                showNotification('모든 필드를 입력해주세요.', 'error');
+                const errorMsg = currentLang === 'ko' ? '모든 필드를 입력해주세요.' : 'Please fill in all fields.';
+                showNotification(errorMsg, 'error');
                 return;
             }
             
             // Simulate form submission
-            showNotification('메시지가 전송되었습니다! 빠른 시일 내에 답변드리겠습니다.', 'success');
+            const successMsg = currentLang === 'ko' ? '메시지가 전송되었습니다! 빠른 시일 내에 답변드리겠습니다.' : 'Message sent successfully! We will reply as soon as possible.';
+            showNotification(successMsg, 'success');
             this.reset();
         });
     }
@@ -261,4 +339,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create cursor trail
     setInterval(createCursorTrail, 50);
+
+    // 모바일 메뉴 토글 기능
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    function toggleMobileMenu() {
+        navMenu.classList.toggle('mobile-active');
+    }
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    }
+    
+    // 화면 크기에 따른 메뉴 표시 조정
+    function handleResize() {
+        if (window.innerWidth <= 768) {
+            mobileMenuToggle.style.display = 'block';
+            navMenu.style.display = navMenu.classList.contains('mobile-active') ? 'flex' : 'none';
+        } else {
+            mobileMenuToggle.style.display = 'none';
+            navMenu.style.display = 'flex';
+            navMenu.classList.remove('mobile-active');
+        }
+    }
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // 초기 실행
+    
+    // 네비게이션 링크 클릭 시 모바일 메뉴 닫기
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('mobile-active');
+            }
+        });
+    });
 });
